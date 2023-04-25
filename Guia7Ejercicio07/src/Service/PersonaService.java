@@ -17,6 +17,7 @@ package Service;
 
 import Persona.Persona;
 import java.util.Scanner;
+import java.lang.IllegalArgumentException;
 
 
 public class PersonaService {
@@ -69,15 +70,20 @@ public class PersonaService {
         }return valorImc;
     }
     
-    public static boolean esMayorDeEdad(int edad){
-        boolean mayor;
-        if (edad < 18) {
-            mayor = false;
-        } else {
-            mayor = true;
+    public static boolean esMayorDeEdad(int edad) /*throws IllegalAccessException*/{
+        boolean mayor = false;
+        try{
+        if(edad == 0) throw new IllegalAccessException("la edad no puede ser 0");
+        mayor = edad >= 18;
+            
+        } catch (IllegalAccessException iae){
+            System.out.println(iae.getMessage());
+            System.out.println(iae.fillInStackTrace());
         }
         return mayor;
+        }
+            
     } 
     
     
-}
+

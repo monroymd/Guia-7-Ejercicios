@@ -18,73 +18,79 @@ import Service.PersonaService;
 public class Guia7Ejercicio07 {
 
     
-    public static void main(String[] args) {
+    public static void main(String[] args) /*throws IllegalAccessException*/ {
         
         PersonaService nuevaPersona = new PersonaService();
         
         int mayores = 0, menores = 0, sobrepeso = 0, pesoIdeal = 0, bajoPeso = 0;
         
         Persona p1 = nuevaPersona.crearPersona();
-        Persona p2 = nuevaPersona.crearPersona();
-        Persona p3 = nuevaPersona.crearPersona();
-        Persona p4 = nuevaPersona.crearPersona();
+//        Persona p2 = nuevaPersona.crearPersona();
+//        Persona p3 = nuevaPersona.crearPersona();
+//        Persona p4 = nuevaPersona.crearPersona();
         
         int p1IMC = PersonaService.calcularIMC(p1.getPeso(), p1.getAltura());
-        if (p1IMC == -1) {
-            bajoPeso += 1;
-        } else if (p1IMC == 0) {
-            pesoIdeal += 1;
-        } else if (p1IMC == 1) {
-            sobrepeso += 1;
+        switch (p1IMC) {
+            case -1:
+                bajoPeso += 1;
+                break;
+            case 0:
+                pesoIdeal += 1;
+                break;
+            case 1:
+                sobrepeso += 1;
+                break;
+            default:
+                break;
         }
         
-        int p2IMC = PersonaService.calcularIMC(p2.getPeso(), p2.getAltura());
-        if (p2IMC == -1) {
-            bajoPeso += 1;
-        } else if (p2IMC == 0) {
-            pesoIdeal += 1;
-        } else if (p2IMC == 1) {
-            sobrepeso += 1;
-        }
-        
-        int p3IMC = PersonaService.calcularIMC(p3.getPeso(), p3.getAltura());
-        if (p3IMC == -1) {
-            bajoPeso += 1;
-        } else if (p3IMC == 0) {
-            pesoIdeal += 1;
-        } else if (p3IMC == 1) {
-            sobrepeso += 1;
-        }
-        
-        int p4IMC = PersonaService.calcularIMC(p4.getPeso(), p4.getAltura());
-        if (p4IMC == -1) {
-            bajoPeso += 1;
-        } else if (p4IMC == 0) {
-            pesoIdeal += 1;
-        } else if (p4IMC == 1) {
-            sobrepeso += 1;
-        }
+//        int p2IMC = PersonaService.calcularIMC(p2.getPeso(), p2.getAltura());
+//        if (p2IMC == -1) {
+//            bajoPeso += 1;
+//        } else if (p2IMC == 0) {
+//            pesoIdeal += 1;
+//        } else if (p2IMC == 1) {
+//            sobrepeso += 1;
+//        }
+//        
+//        int p3IMC = PersonaService.calcularIMC(p3.getPeso(), p3.getAltura());
+//        if (p3IMC == -1) {
+//            bajoPeso += 1;
+//        } else if (p3IMC == 0) {
+//            pesoIdeal += 1;
+//        } else if (p3IMC == 1) {
+//            sobrepeso += 1;
+//        }
+//        
+//        int p4IMC = PersonaService.calcularIMC(p4.getPeso(), p4.getAltura());
+//        if (p4IMC == -1) {
+//            bajoPeso += 1;
+//        } else if (p4IMC == 0) {
+//            pesoIdeal += 1;
+//        } else if (p4IMC == 1) {
+//            sobrepeso += 1;
+//        }
         
         if (PersonaService.esMayorDeEdad(p1.getEdad())) {
             mayores += 1;
         } else {
             menores += 1;
         }
-        if (PersonaService.esMayorDeEdad(p2.getEdad())) {
-            mayores += 1;
-        } else {
-            menores += 1;
-        }
-        if (PersonaService.esMayorDeEdad(p3.getEdad())) {
-            mayores += 1;
-        } else {
-            menores += 1;
-        }
-        if (PersonaService.esMayorDeEdad(p4.getEdad())) {
-            mayores += 1;
-        } else {
-            menores += 1;
-        }
+//        if (PersonaService.esMayorDeEdad(p2.getEdad())) {
+//            mayores += 1;
+//        } else {
+//            menores += 1;
+//        }
+//        if (PersonaService.esMayorDeEdad(p3.getEdad())) {
+//            mayores += 1;
+//        } else {
+//            menores += 1;
+//        }
+//        if (PersonaService.esMayorDeEdad(p4.getEdad())) {
+//            mayores += 1;
+//        } else {
+//            menores += 1;
+//        }
         
         System.out.println("De las 4 personas, "+sobrepeso+ " de ellas se encuentran con sobreso, "
                 +pesoIdeal+" con peso ideal y "+bajoPeso+" con bajo peso. Mientras que "+mayores
